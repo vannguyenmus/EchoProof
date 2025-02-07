@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+.UpperText {
+/* Music Protection for creators */
+font-family: "Space Grotesk", sans-serif;
+font-size: 50px;
+font-weight: bold;
+}
+
+.LowerText {
+/* Protect Your Sound. Unlock Global Access Legally. */
+left: 89px;
+font-family: "Tajawal", sans-serif;
+font-weight: 300;
+font-style: normal;
+color: #FFFFFF;
+
+/* Accessible for everyone. */
+}
+
+.home-market {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #d1d1d6;
+}
+
+.music-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 300px;
+}
+
+.music-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.music-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.music-text {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: white;
+}

@@ -1,0 +1,104 @@
+.payment-container {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 8px;
+  width: 600px;
+  margin: auto;
+  max-width: 90%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.order-summary {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.album-art {
+  background-color: #a99ec7;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.order-details p {
+  font-size:12pt;
+  margin: 5px 0;
+}
+.order-information {
+  display:flex;
+  justify-content:space-between;
+  flex-direction:row;
+  width:100%;
+}
+.order-summary {
+  display:flex;
+}
+.order-pricing p {
+  font-size: 14px;
+}
+.payment-options {
+  display: flex;
+  margin: auto;
+  width:100%;
+  justify-content: space-around;
+}
+
+.pay-button {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.apple-pay {
+  background: #000;
+  color: #fff;
+}
+
+.google-pay {
+  background: #fff;
+  color: #000;
+}
+
+.divider {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 12px;
+}
+
+.input-info {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+}
+
+.submit-button {
+  background-color: #a99ec7;
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}

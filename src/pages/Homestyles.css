@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+.UpperText {
+/* Music Protection for creators */
+font-family: "Space Grotesk", sans-serif;
+font-size: 50px;
+font-weight: bold;
+margin:1px;
+}
+
+.LowerText {
+/* Protect Your Sound. Unlock Global Access Legally. */
+left: 89px;
+font-family: "Tajawal", sans-serif;
+font-weight: 300;
+font-style: normal;
+color: #FFFFFF;
+
+/* Accessible for everyone. */
+}
+
+#hands {
+  margin-right: 300px;
+  
+}
+
+.home-text {
+    flex-grow: 1;
+    padding:100px 200px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.body {
+font-size:20px;
+color: black;
+background-color: rgb(246, 246, 246);
+display:table; /* keep the background color wrapped tight */
+margin: 0px auto 0px auto; /* keep the table centered */
+padding:5px 35px;
+border-radius: 10px;
+}
+
+.pic-container {
+display: flex;
+justify-content: center;  /* Horizontally center the image */
+align-items: center;      /* Vertically center the image */
+margin-top: 20px;
+
+}
+
+.pic-container img {
+    width: 1000px;  /* Set the desired image width */
+    height: auto; 
+
+}
+
+#text-box {
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns the content at the top of the columns */
+    display: flex;
+    padding: 0 100px;
+}
+
+.column {
+    margin: 0 10px; /* Adds some space between columns */
+    text-align: left; /* Aligns the text to the left inside the column */
+    margin: 10px 0;
+    width: 30%;
+    font-size: 25px;
+}
+
+.home {
+    display: flex;
+    width: 100%;
+
+}
+.home-wrapper {
+    flex-direction: column;
+    width: 100vw;
+}
