@@ -20,7 +20,7 @@ const SongPlayer = () => {
     const [player, setPlayer] = useState(null);
 
     const spotifyClientId = "1017f35acbf44abfa9c2e9466d5fc059"; // Replace with your Spotify Client ID
-    const redirectUri = 'http://localhost:3003/test'; // Replace with your redirect URI
+    const redirectUri = 'http://localhost:3003/songplayer'; // Replace with your redirect URI
     const scope = 'streaming user-read-email user-read-private';
 
     const handleSongClick = (song) => {
@@ -185,7 +185,7 @@ const SongPlayer = () => {
             <div className="main-content">
                 <SongList songs={searchResults} onSongClick={handleSongClick} />
                 <div className="details">
-                    {selectedSong && <SongCredits credits={{ artist: selectedSong.artists[0].name }} />}
+                    {selectedSong && <SongCredits credits={{ artist: selectedSong }} />}
                     {selectedSong && <NowPlaying song={selectedSong} />}
                 </div>
             </div>
@@ -233,12 +233,23 @@ const SongItem = ({ song, onClick }) => (
     </div>
 );
 
-const SongCredits = ({ credits }) => (
-    <div className="song-credits">
+const SongCredits = ({ credits }) => {
+    // .artists[0].name
+    const { artist } = credits
+    const artists = artist.artists
+    const album = artist.album
+    console.log(credits)
+    console.log(credits.artist.album)
+
+    return (
+        <div className="song-credits">
         <h3>Credits</h3>
-        <p><strong>{credits.artist}</strong></p>
+        {/* <p><strong>{credits.artist}</strong></p> */}
+        <p><b>Artist:</b> {artists.map(artist => artist.name).join(", ")}</p>
+        <p><b>Album:</b> {album.name}</p>
     </div>
-);
+    )
+};
 
 const NowPlaying = ({ song }) => (
     <div className="now-playing">
@@ -250,7 +261,7 @@ const NowPlaying = ({ song }) => (
             </div>
         </div>
         <div className="controls">
-            <input type="range" min="0" max="100" />
+            <input type="range" min="0" max="100" value={0} />
             <div className="timing">
                 <span>00:00</span>
                 <span>{(song.duration_ms / 60000).toFixed(2)}</span>
