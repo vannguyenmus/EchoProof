@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./songplayer.css";
 import { fetchSpotifyToken, getSpotifyToken } from "./firebase-config";
 
@@ -251,28 +251,79 @@ const SongCredits = ({ credits }) => {
     )
 };
 
-const NowPlaying = ({ song }) => (
-    <div className="now-playing">
-        <div className="manual">
-            <img src={song.album.images[0]?.url} alt={`${song.name} cover`} />
-            <div>
-                <h4>{song.name}</h4>
-                <p>{song.artists.map(artist => artist.name).join(", ")}</p>
+const NowPlaying = ({ song }) => {
+    const [currentTime, setCurrentTime] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const intervalRef = useRef(null); // Store the interval ID to clear it later
+
+    const totalDuration = song.duration_ms / 1000; // Convert to seconds
+    const currentTimeInMinutes = (currentTime / 60).toFixed(2);
+    const totalDurationInMinutes = (totalDuration / 60).toFixed(2);
+
+    // Update the range as time progresses
+    useEffect(() => {
+        if (isPlaying) {
+            // Start the interval when playing
+            intervalRef.current = setInterval(() => {
+                setCurrentTime((prevTime) => {
+                    if (prevTime >= totalDuration) {
+                        clearInterval(intervalRef.current); // Stop when the song ends
+                        return totalDuration;
+                    }
+                    return prevTime + 1; // Increment time by 1 second
+                });
+            }, 1000); // Update every second
+        } else {
+            clearInterval(intervalRef.current); // Stop the interval when paused
+        }
+
+        return () => {
+            clearInterval(intervalRef.current); // Cleanup interval on component unmount
+        };
+    }, [isPlaying, totalDuration]);
+
+    // Handle play/pause toggle
+    const handlePlayPause = () => {
+        setIsPlaying(!isPlaying);
+    };
+
+    // Handle manual change in the range (seeking)
+    const handleRangeChange = (e) => {
+        const newTime = e.target.value;
+        setCurrentTime(newTime);
+    };
+
+    return (
+        <div className="now-playing">
+            <div className="manual">
+                <img src={song.album.images[0]?.url} alt={`${song.name} cover`} />
+                <div>
+                    <h4>{song.name}</h4>
+                    <p>{song.artists.map(artist => artist.name).join(", ")}</p>
+                </div>
+            </div>
+            <div className="controls">
+                <input
+                    type="range"
+                    min="0"
+                    max={totalDuration}
+                    value={currentTime}
+                    onChange={handleRangeChange}
+                />
+                <div className="timing">
+                    <span>{currentTimeInMinutes}</span>
+                    <span>{totalDurationInMinutes}</span>
+                </div>
+                <div className="buttons">
+                    <button>⏮</button>
+                    <button onClick={handlePlayPause}>
+                        {isPlaying ? "⏸" : "▶"}
+                    </button>
+                    <button>⏭</button>
+                </div>
             </div>
         </div>
-        <div className="controls">
-            <input type="range" min="0" max="100" value={0} />
-            <div className="timing">
-                <span>00:00</span>
-                <span>{(song.duration_ms / 60000).toFixed(2)}</span>
-            </div>
-            <div className="buttons">
-                <button>⏮</button>
-                <button>▶</button>
-                <button>⏭</button>
-            </div>
-        </div>
-    </div>
-);
+    );
+};
 
 export default SongPlayer;
