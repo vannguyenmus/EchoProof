@@ -61,11 +61,14 @@ Side Panel
   border: none;
   color: #FFFFFF;
   padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px 0;
+  border-radius: 8px;
 }
 
+.click-button {
+  display: flex; 
+  flex-direction: row;
+  gap:12px;
+}
 .side-panel button:hover {
   background-color: #9595de;
 }

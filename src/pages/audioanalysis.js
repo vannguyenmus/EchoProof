@@ -9,7 +9,7 @@ const Analysis = () => {
     // Update these tokens when create a new account
     // token is from integration
     // compareToken is from GraphQL
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiSW50ZWdyYXRpb25BY2Nlc3NUb2tlbiIsInZlcnNpb24iOiIxLjAiLCJpbnRlZ3JhdGlvbklkIjoxNDExLCJ1c2VySWQiOjE4NTI3MiwiYWNjZXNzVG9rZW5TZWNyZXQiOiIyNWIxNGI0Yzc4MmY4NThhZGQyYjJhMTJhOThhODJhZTJlNGZlNWU4NGY3MThlNGNhOTQ0ODdmM2IyNGExNzY0IiwiaWF0IjoxNzM4OTA5NjM4fQ.WTOFU1KB6pZE6I09VF3-7lr-Jn1_K_vR_54vlrsJIZk";
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiSW50ZWdyYXRpb25BY2Nlc3NUb2tlbiIsInZlcnNpb24iOiIxLjAiLCJpbnRlZ3JhdGlvbklkIjoxNDUwLCJ1c2VySWQiOjE4OTE5OCwiYWNjZXNzVG9rZW5TZWNyZXQiOiIyZjA2NWJkOTg5MzRmZjIxOGIzNDhiYzQyZmE0NDkzYmI3ZmQyNGRiNzVlYmIxMDczMGQwZDM4NjgxZDQ1YmEwIiwiaWF0IjoxNzQwMjQxNjQ1fQ.absrbBx0PZ8jli3RTp-_3SKLMzaogKGvoBHuUhAMWOk";
     const compareToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiQWNjZXNzVG9rZW4iLCJ2ZXJzaW9uIjoiMS4wIiwicmVmcmVzaEtleUlkIjozODkzNTUsInVzZXJJZCI6MTg1MjcyLCJpYXQiOjE3Mzg5MDk3MzQsImV4cCI6MTczOTUxNDUzNH0.YGHelUKp8xYyWQ8hvjvSuHQ2Z1MjKtBTxbYJFzdlSMY";
 
     useEffect(() => {

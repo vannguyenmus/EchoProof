@@ -88,9 +88,14 @@ const RegistrationForm = () => {
                 />
 
                 <div className="side-panel">
-                    <a href="/askAI">
-                        <button type="button">Ask for AI Help</button>
-                    </a>
+                    <div className="click-button">
+                        <a href="/askAI">
+                            <button type="button">Ask for AI Help</button>
+                        </a>
+                        <a href="/audioanalysis">
+                            <button type="button">Compare Song</button>
+                        </a>
+                    </div>
                     <p>Copy your song link here to start uploading</p>
                     <div className="music-button-group">
                         <input
