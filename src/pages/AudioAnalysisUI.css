@@ -7,14 +7,35 @@ body {
 
 .container {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #9494D5;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Upload & YouTube Input */
 .top-bar {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.upload-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.upload-container label {
+  color: #9494D5;
+  font-weight: bold;
 }
 
 .upload-btn {
@@ -24,72 +45,130 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-}
-
-.youtube-input {
   flex: 1;
-  padding: 10px;
-  background-color: #222;
-  color: white;
-  border: 1px solid #555;
-  border-radius: 8px;
-}
-
-.play-btn {
-  background-color: #471E6A;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
 }
 
 /* Analyze Button */
 .analyze-section {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.analyze-btn {
+.compare-btn {
   background-color: #471E6A;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 30px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.analyze-btn:hover {
+.compare-btn:hover {
   background-color: #7b2cbf;
+}
+
+.compare-btn:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+}
+
+/* Result Display */
+.result-container {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #222;
+  text-align: center;
+}
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #9494D5;
+}
+
+.similarity-meter {
+  height: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.similarity-fill {
+  height: 100%;
+  background: linear-gradient(to right, #471E6A, #9494D5);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Comparison Container */
+.comparison-container {
+  margin: 20px 0;
 }
 
 /* Analysis Table */
 .table-container {
-  background-color: #9494D5;
-  padding: 15px;
+  background-color: #222;
+  padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
+  overflow: hidden;
 }
 
-.table-header, .table-row {
+.table-header {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
-  font-size: 14px;
-  color: #ddd;
-  margin-bottom: 10px;
-  column-gap: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  background-color: #471E6A;
+  padding: 10px;
+  border-radius: 6px;
 }
 
-.table-row div {
-  background-color: #D9D9D9;
-  height: 30px;
+.table-row-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+}
+
+.property {
+  text-align: left;
+  padding: 8px;
+  font-weight: bold;
+  color: #9494D5;
+}
+
+.value {
+  background-color: #333;
+  padding: 8px;
   border-radius: 6px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Most Representative Segment */
 .segment-btn-container {
-  margin-top: 20px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .segment-btn {
@@ -99,59 +178,71 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 .segment-btn:hover {
-  background-color: #471E6A;
+  background-color: #7b2cbf;
 }
 
 /* Audio Waveforms */
-.waveform-container {
-  margin-top: 20px;
+.waveform-cont-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.waveform-cont-cont {
-    width: 100%;
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
+.waveform-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.waveform-title {
+  margin: 15px 0 5px;
+  color: #9494D5;
+  font-weight: bold;
 }
 
 .waveform-row {
   display: flex;
   align-items: center;
   background-color: #222;
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
-  margin-bottom: 10px;
-  width: max-content;
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .play-circle {
   background-color: #471E6A;
   color: white;
-  padding: 10px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .waveform {
   display: flex;
-  gap: 20px;
   flex-grow: 1;
+  align-items: flex-end;
+  height: 50px;
+  justify-content: space-evenly;
+  /* gap: 28px; */
 }
 
 .wave-bar {
-  width: 5px;
-  height: 20px;
+  width: 6px;
   background-color: #471E6A;
   border-radius: 4px;
-}
-
-.wave-bar.tall {
-  height: 30px;
+  transition: height 0.3s;
 }
