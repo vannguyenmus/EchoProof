@@ -11,6 +11,12 @@ export default function Navbar() {
             <li>
                 <a href="/marketplace"> Marketplace</a>
             </li>
+            <li>
+                <a href="/songplayer"> Song Player</a>
+            </li>
+            <li>
+                <a href="/audioanalysis"> Audio Analysis</a>
+            </li>
             {/* <li>
             </li> */}
         </ul>
